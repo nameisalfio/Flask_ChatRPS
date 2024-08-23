@@ -17,7 +17,7 @@ public class WebSecurityConfig {
         http
                 .csrf(CsrfConfigurer::disable)
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/user/registrazione", "/user/login", "/user/getUser/**").permitAll()
+                        .requestMatchers("/user/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable);
