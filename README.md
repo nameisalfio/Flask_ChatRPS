@@ -17,3 +17,6 @@ Execute following command for exporting the database dump in the 'SpringBoot_Cha
 mysqldump -u root -p ChatRPS > /Users/nameisalfio/Desktop/SpringBoot_ChatRPS/dump.sql
 ```
 
+# Todo List
+
+- Implement one-to-many relations in SpringBoot
