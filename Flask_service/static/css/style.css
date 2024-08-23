@@ -158,3 +158,22 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.file-input {
+    width: 300px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+}

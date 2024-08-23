@@ -5,5 +5,5 @@
 {% block content %}
     <h2>Prediction Result</h2>
     <p>The predicted class is: <strong>{{ prediction }}</strong></p>
-    <button><a href="{{ url_for('upload_image') }}">Predict Again</a></button>
+    <button><a href="{{ url_for('main.upload_image') }}">Predict Again</a></button>
 {% endblock %}
