@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     ModelMapper modelMapper = new ModelMapper();
 
@@ -30,21 +30,35 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean loginUtente(UserRegistrazioneDto utente) {
-        return false;
+        User user = new User();
+
+        user.setEmail(utente.getEmail());
+        user.setPassword(utente.getPassword());
+
+        String passwordHash = DigestUtils.sha256Hex(user.getPassword());
+
+        User credenzialiUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+
+        return credenzialiUser != null ? true : false;
     }
 
     @Override
     public boolean esisteUtenteMail(String email) {
-        return false;
+        return userRepository.existsByEmail(email);
     }
 
     @Override
     public User trovaUtenteMail(String email) {
-        return null;
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public UserDto getUserByEmail(String email) {
-        return null;
+
+        User user = userRepository.findByEmail(email);
+
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+
+        return userDto;
     }
 }
