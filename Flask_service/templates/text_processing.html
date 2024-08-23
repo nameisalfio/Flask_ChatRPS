@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Text Processing{% endblock %}
+
+{% block content %}
+    <h2>Process Text Input</h2>
+    <form method="POST" action="{{ url_for('main_bp.process_text') }}">
+        <label for="input_text">Enter Text:</label>
+        <textarea id="input_text" name="input_text" rows="4" cols="50" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if generated_text %}
+        <h3>Processed Text Result:</h3>
+        <p>{{ generated_text }}</p>
+    {% endif %}
+{% endblock %}
