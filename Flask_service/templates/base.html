@@ -12,10 +12,10 @@
             <h1>Flask App</h1>
             <nav>
                 <ul>
-                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                    <li><a href="{{ url_for('main.users') }}">Users</a></li>
-                    <li><a href="{{ url_for('main.conversations') }}">Conversations</a></li>
-                    <li><a href="{{ url_for('main.upload_image') }}">Upload Image</a></li>
+                    <li><a href="{{ url_for('users_bp.users_list') }}">Home</a></li>
+                    <li><a href="{{ url_for('users_bp.users_list') }}">Users</a></li>
+                    <li><a href="{{ url_for('conversations_bp.conversations_list') }}">Conversations</a></li>
+                    <li><a href="{{ url_for('upload_image_bp.upload_image') }}">Upload Image</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,7 +28,7 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        {% block content %}     
+        {% block content %}
             <h2>Welcome to Flask App</h2>
         {% endblock %}
     </main>
