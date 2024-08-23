@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
         User credenzialiUser = userRepository.findByEmailAndPassword(user.getEmail(), passwordHash);
 
-        return credenzialiUser != null ? true : false;
+        return credenzialiUser != null;
     }
 
     @Override
