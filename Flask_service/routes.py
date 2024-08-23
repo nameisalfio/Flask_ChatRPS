@@ -2,13 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.utils import secure_filename
 import os
 from app import app, mysql
-from rps_classifier import predict
+from rps_classifier import *
 
-UPLOAD_FOLDER = 'static/img'
 TEMP_FOLDER = 'temp'  # Utilizzato per salvare temporaneamente le immagini caricate
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['TEMP_FOLDER'] = TEMP_FOLDER
+
+# Carica il modello all'avvio dell'app
+model_path = os.path.join('ml_models', 'rps_model.pth')
+model = load_model(model_path)
 
 @app.route('/upload_image', methods=['GET', 'POST'])
 def upload_image():
@@ -22,16 +23,15 @@ def upload_image():
             flash('No selected file', 'error')
             return redirect(url_for('upload_image'))
 
-        # Salva temporaneamente l'immagine
         if not os.path.exists(app.config['TEMP_FOLDER']):
             os.makedirs(app.config['TEMP_FOLDER'])
 
         image_path = os.path.join(app.config['TEMP_FOLDER'], secure_filename(image.filename))
         image.save(image_path)
         
-        # Predici l'etichetta
-        label_index = predict(image_path)
-        labels = {0: "Scissors", 1: "Rock", 2: "Paper"}
+        # Usa la funzione predict per ottenere l'etichetta dell'immagine
+        label_index = predict(image_path, model)  
+        labels = {0: "rock", 1: "paper", 2: "scissors"}
         prediction = labels.get(label_index, "Unknown")
 
         return render_template('result.html', prediction=prediction)
