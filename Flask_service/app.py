@@ -1,14 +1,6 @@
-from flask import Flask
-import flask_mysqldb as mysqldb
-from config import Config
+from Flask_service import create_app
 
-app = Flask(__name__)
-app.config.from_object(Config)
-
-mysql = mysqldb.MySQL(app)
-
-# Importa le rotte dopo aver inizializzato l'app e MySQL
-from routes import *
+app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
