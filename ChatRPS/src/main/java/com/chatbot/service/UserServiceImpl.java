@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
         String passwordHash = DigestUtils.sha256Hex(user.getPassword());
 
-        User credenzialiUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        User credenzialiUser = userRepository.findByEmailAndPassword(user.getEmail(), passwordHash);
 
         return credenzialiUser != null ? true : false;
     }
