@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Create Conversation{% endblock %}
+
+{% block content %}
+    <h2>Create New Conversation</h2>
+    <form method="POST">
+        <label for="user_id">User ID:</label>
+        <select id="user_id" name="user_id" required>
+            {% for user in users %}
+                <option value="{{ user[0] }}">{{ user[3] }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="prompt">Prompt:</label>
+        <textarea id="prompt" name="prompt" required></textarea><br>
+        <label for="response">Response:</label>
+        <textarea id="response" name="response" required></textarea><br>
+        <input type="submit" value="Create Conversation">
+    </form>
+    <button><a href="{{ url_for('conversations') }}">Back to Conversations List</a></button>
+{% endblock %}
