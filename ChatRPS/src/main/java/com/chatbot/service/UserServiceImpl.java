@@ -1,6 +1,8 @@
 package com.chatbot.service;
 
 import com.chatbot.dto.UserDto;
+import com.chatbot.dto.UserLoginRequestDto;
+import com.chatbot.dto.UserLoginResponseDto;
 import com.chatbot.dto.UserRegistrazioneDto;
 import com.chatbot.model.User;
 import com.chatbot.repository.UserRepository;
@@ -29,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginUtente(UserRegistrazioneDto utente) {
+    public boolean loginUtente(UserLoginRequestDto utente) {
         User user = new User();
 
         user.setEmail(utente.getEmail());
