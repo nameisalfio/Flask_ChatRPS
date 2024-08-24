@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Conversation{% endblock %}
+
+{% block content %}
+    <h2>Create a New Conversation</h2>
+    
+    <!-- Form for creating a new conversation -->
+    <form method="POST" action="{{ url_for('main_bp.create_conversation') }}">
+        <label for="user_id">Select User:</label>
+        <select name="user_id" id="user_id" required>
+            <option value="">-- Select a user --</option>
+            {% for user in users %}
+                <option value="{{ user[0] }}">{{ user[1] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Create Conversation">
+    </form>
+{% endblock %}

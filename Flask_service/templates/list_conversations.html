@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Conversations{% endblock %}
+
+{% block content %}
+    <h2>Conversations</h2>
+    <a href="{{ url_for('main_bp.create_conversation') }}" class="button" style="color: white; background-color: #4b4b4b; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Create New Conversation</a>
+
+    <!-- Display list of conversations -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Start Time</th>
+                <th>Username</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for conversation in conversations %}
+                <tr>
+                    <td>{{ conversation[0] }}</td>  
+                    <td>{{ conversation[1] }}</td>  
+                    <td>{{ conversation[2] }}</td>  
+                    <td>
+                        <a href="{{ url_for('main_bp.view_and_update_conversation', conversation_id=conversation[0]) }}">View</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -15,10 +15,11 @@
     <!-- Display uploaded image and result if available -->
     {% if prediction %}
         <div class="result-container">
-            <h3>Image Classification Result:</h3>
+            <h3>Image Classification Result</h3>
             <div class="image-box">
-                <p>The predicted class for gesture is : <strong>{{ prediction }}</strong></p>
+                <p>RPS-Classifier has analyzed the uploaded image and identified the gesture as: <strong>{{ prediction }}</strong>.</p>
             </div>
         </div>
     {% endif %}
 {% endblock %}
+
