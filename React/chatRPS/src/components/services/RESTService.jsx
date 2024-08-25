@@ -8,7 +8,7 @@ export async function registrazione() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const response = await fetch('http://localhost:8080/api/utente/registrazione', {
+    const response = await fetch('http://localhost:8080/api/user/registrazione', {
         method: 'POST', // Metodo HTTP per la richiesta POST
         headers: {
             'Content-Type': 'application/json', // Imposta l'intestazione del contenuto come JSON
@@ -42,7 +42,7 @@ export async function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const response = await fetch('http://localhost:8080/api/utente/login', {
+    const response = await fetch('http://localhost:8080/api/user/login', {
         method: 'POST', // Metodo HTTP per la richiesta POST
         headers: {
             'Content-Type': 'application/json', // Imposta l'intestazione del contenuto come JSON
@@ -80,7 +80,7 @@ export async function getUser() {
 
     try {
 
-        const response = await fetch(`http://localhost:8080/api/utente/getUser/${email}`, {
+        const response = await fetch(`http://localhost:8080/api/user/getUser/${email}`, {
             method: 'GET',
             // headers: {
             //     'Content-Type': 'Application/json',

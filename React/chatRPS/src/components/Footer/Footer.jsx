@@ -7,11 +7,11 @@ export function Footer() {
 
             <ScrollToTop smooth />
             <div className="card-header" style={{ borderBottom: "1px solid grey" }}>
-                &copy; Copiright - Gabriele Ruggieri & Alfio Spoto
+                &copy; Copiright - Gabriele Ruggieri
             </div>
             <div className="card-body">
-                <h5 className="card-title" style={{ paddingBottom: ".5rem" }}>ChatRPS 2024</h5>
-                <p className="card-text">I megghiu</p>
+                <h5 className="card-title" style={{ paddingBottom: ".5rem" }}>Sistemi Informativi 2024</h5>
+                <p className="card-text">Cloud Software Engineer</p>
             </div>
 
         </div>
