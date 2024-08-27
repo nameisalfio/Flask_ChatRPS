@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <h2>Profile</h2>
+    <p>Name: {{ user.name }} {{ user.lastname }}</p>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    
+    <!-- Form to navigate to the update form -->
+    <form method="GET" action="{{ url_for('user_bp.update_form') }}">
+        <input type="hidden" name="id" value="{{ user.id }}">
+        <button type="submit">Update Profile</button>
+    </form>
+    
+    <form method="POST" action="{{ url_for('user_bp.delete_user', id=user.id) }}">
+        <button type="submit">Delete Account</button>
+    </form>
+{% endblock %}

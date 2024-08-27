@@ -4,6 +4,12 @@ from app.models.user import User
 
 auth_bp = Blueprint('auth_bp', __name__)
 
+@auth_bp.route('/', methods=['GET'])
+def home():
+    if 'user_id' in session:
+        return redirect(url_for('user_bp.profile'))
+    return redirect(url_for('auth_bp.login_page'))
+
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -16,19 +22,21 @@ def login():
             session['user_id'] = user.id
             flash('Login successful!', 'success')
             return redirect(url_for('user_bp.profile'))
-        else:
-            flash('Invalid username or password', 'error')
-            return redirect(url_for('auth_bp.login_page'))
-
-    return render_template('index.html')
-
-@auth_bp.route('/logout')
-def logout():
+        flash('Invalid username or password', 'error')
+    
     if 'user_id' in session:
-        session.pop('user_id', None)
-        flash('You have been logged out', 'success')
+        return redirect(url_for('user_bp.profile'))
+    
+    return render_template('login.html')
+
+@auth_bp.route('/logout', methods=['GET'])
+def logout():
+    session.pop('user_id', None)
+    flash('You have been logged out', 'success')
     return redirect(url_for('auth_bp.login_page'))
 
-@auth_bp.route('/')
+@auth_bp.route('/login_page', methods=['GET'])
 def login_page():
-    return render_template('index.html')
+    if 'user_id' in session:
+        return redirect(url_for('user_bp.profile'))
+    return render_template('login.html')

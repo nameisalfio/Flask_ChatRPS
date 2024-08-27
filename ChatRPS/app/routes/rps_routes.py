@@ -17,12 +17,10 @@ def rps_classify():
         image = request.files.get('image')
         if image and image.filename:
             try:
-                with tempfile.TemporaryDirectory() as temp_dir:
-                    image_path = os.path.join(temp_dir, secure_filename(image.filename))
-                    image.save(image_path)
-
+                with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(image.filename)[1]) as temp_file:
+                    image.save(temp_file.name)
                     labels = {0: "rock", 1: "paper", 2: "scissors"}
-                    prediction_index = predict(image_path, rps_model)
+                    prediction_index = predict(temp_file.name, rps_model)
                     prediction = labels.get(prediction_index, "Unknown")
             except Exception as e:
                 flash(f'Error processing image: {e}', 'error')
