@@ -36,3 +36,5 @@ build/
 application.properties
 __pycache__/*
 temp/*
+.flaskenv
+.env
