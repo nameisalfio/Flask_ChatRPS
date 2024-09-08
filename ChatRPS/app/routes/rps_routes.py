@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from werkzeug.utils import secure_filename
-from app.ml_models.rps_classifier import load_model, predict
+from ChatRPS.app.ml_models.rps_classifier import load_model, predict
 import tempfile
 import os
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
-from app import db
-from app.models.user import User
+from ChatRPS.app import db
+from ChatRPS.app.models.user import User
 
 user_bp = Blueprint('user_bp', __name__)
 

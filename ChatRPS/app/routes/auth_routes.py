@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import check_password_hash
-from app.models.user import User
-from app import db
+from ChatRPS.app.models.user import User
+from ChatRPS.app import db
 from datetime import datetime
 
 auth_bp = Blueprint('auth_bp', __name__)
