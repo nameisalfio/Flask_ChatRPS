@@ -14,52 +14,51 @@ Flask_ChatRPS is a web application that integrates a Rock-Paper-Scissors (RPS) c
 
    ```bash
    git clone git@github.com:nameisalfio/Flask_ChatRPS.git
-   ```
+   ````
 
-2. **Navigate into the project directory**:
+2. **Navigate to the project directory**:
 
    ```bash
-   cd Flask_ChatRPS
-   ```
-
+  cd Flask_ChatRPS
+    ```
 3. **Create and activate a Conda environment**:
 
-   ```bash
-   conda create --name ego4d_vq2d python=3.8
-   conda activate ego4d_vq2d
-   ```
+    ```bash
+    conda env create -f environment.yml
+    conda activate chat_rps
+    ```
 
-4. **Install the required dependencies**:
+4. **Install dependencies**:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 5. **Run database migrations**:
 
-   ```bash
-   flask db upgrade
-   ```
+  ```bash
+  flask db upgrade
+  ```
 
-6. **Start the Flask application**:
+6. **Run the application**:
 
-    ```bash
-    python -m ChatRPS.run
-    ```
+  ```bash
+  python -m ChatRPS.run
+  ```
 
-   or if you have the `FLASK_APP` environment variable set:
+  or if you have the `FLASK_APP` environment variable set:
 
-    ```bash
-    flask run
-    ```
+  ```bash
+  flask run
+  ```
 
-    Script for setting the `FLASK_APP` environment variable:
+  Script for setting the `FLASK_APP` environment variable:
 
-    ```bash
-    export FLASK_APP=ChatRPS
-    export FLASK_ENV=development
-    export FLASK_DEBUG=1
-    ```
+  ```bash
+  export FLASK_APP=ChatRPS
+  export FLASK_ENV=development
+  export FLASK_DEBUG=1
+  ```
 
 ## How It Works
 
@@ -111,17 +110,17 @@ Flask_ChatRPS
 │   │       ├── rps_classify.html
 │   │       └── update_form.html
 │   ├── migrations
-│   │   ├── README
 │   │   ├── alembic.ini
 │   │   ├── env.py
 │   │   └── script.py.mako
 │   └── run.py
 ├── LICENSE
 ├── README.md
-└── dump.sql
-
-12 directories, 31 files
+├── environment.yml
+└── requirements.txt
 ```
+
+It consists of the following components:
 
 It consists of the following components:
 
@@ -156,7 +155,8 @@ It consists of the following components:
   - **`run.py`**: Entry point for running the Flask application.
 - **`LICENSE`**: Contains the project's license information.
 - **`README.md`**: This file, providing an overview and documentation for the project.
-- **`dump.sql`**: SQL dump file for the database schema and initial data.
+- **`environment.yml`**: Contains Conda environment configuration and dependencies.
+- **`requirements.txt`**: Contains pip dependencies.
 
 ## Best Practices
 
@@ -164,6 +164,7 @@ It consists of the following components:
 - **Blueprints**: Flask blueprints are used to organize routes into logical components. Each blueprint handles a specific aspect of the application, such as authentication or RPS functionality, which enhances code maintainability.
 - **Configuration Management**: Configuration settings are kept in `config.py` to separate them from application logic and facilitate different configurations for development, testing, and production environments.
 - **Security**: Passwords are hashed before storing them in the database, and user sessions are managed securely using Flask sessions.
+- **Database Management**: SQLAlchemy is used for ORM (Object-Relational Mapping) to handle database operations, providing a high-level abstraction for database interactions.
 
 ## Contributing
 
