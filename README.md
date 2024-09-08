@@ -12,22 +12,22 @@ Flask_ChatRPS is a web application that integrates a Rock-Paper-Scissors (RPS) c
 
 1. **Clone the repository**:
 
-   ```bash
-   git clone git@github.com:nameisalfio/Flask_ChatRPS.git
-   ```
+  ```bash
+  git clone git@github.com:nameisalfio/Flask_ChatRPS.git
+  ```
 
 2. **Navigate to the project directory**:
 
-   ```bash
-   cd Flask_ChatRPS
-   ```
+  ```bash
+  cd Flask_ChatRPS
+  ```
 
 3. **Create and activate a Conda environment**:
 
-    ```bash
-    conda env create -f environment.yml
-    conda activate chat_rps
-    ```
+  ```bash
+  conda env create -f environment.yml
+  conda activate chat_rps
+  ```
 
 4. **Install dependencies**:
 
